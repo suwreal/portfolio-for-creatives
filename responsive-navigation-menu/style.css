@@ -39,7 +39,7 @@ body {
 .menu-toggle {
   display: none;
   flex-direction: column;
-  cursor: pointer;
+  cursor: help;
 }
 .bar {
   height: 3px;

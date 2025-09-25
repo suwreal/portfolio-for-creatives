@@ -2,14 +2,13 @@ button {
   color: white;
   padding: 1em;
   border: 0;
-  cursor: pointer;
+  cursor: help;
   background: red;
 }
 
 button.active {
   background: green;
 }
-
 
 @media (min-width: 700px) {
   button {
