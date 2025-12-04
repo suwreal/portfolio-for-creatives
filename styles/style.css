@@ -632,11 +632,11 @@ a.nav-link-primary:hover {
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
 a svg.logo {
-  color: var(--color-accent-primary);
+  fill: var(--color-accent-primary);
 }
 
 a svg.logo:hover {
-  color: var(--color-bg-selection);
+  fill: var(--color-bg-selection);
 }
 .hero {
   width: 100%;
