@@ -135,7 +135,7 @@
   --color-link-visited: #292820;
   /* Navigation */
   --color-nav-link: #292820;
-  --color-nav-link-hover: #292820;
+  --color-nav-link-hover: #ad6a3a;
   --color-nav-arrow: #ad6a3a;
   --color-nav-arrow-hover: #292820;
   --color-nav-arrow-stroke: #ad6a3a;
@@ -631,7 +631,13 @@ a.nav-link-primary:hover {
 /* Full-page intro area with logo, headline, icon, and footer nav            */
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
+a svg.logo {
+  color: var(--color-accent-primary);
+}
 
+a svg.logo:hover {
+  color: var(--color-bg-selection);
+}
 .hero {
   width: 100%;
   min-height: 80vh; /* Takes up most of the screen height */
@@ -905,6 +911,24 @@ a.nav-link-primary:hover {
 .about-text {
   border: 10px solid blue;
   width: 100%;
+}
+hr {
+  height: 2px;
+  background-color: #222;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+a.button {
+  padding: 0.5rem;
+  background-color: #a99f6d;
+  color: #222;
+}
+
+a.button:hover {
+  padding: 0.5rem;
+  background-color: #655817;
+  color: #222;
 }
 
 /* 
