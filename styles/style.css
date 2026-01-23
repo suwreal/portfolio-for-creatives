@@ -35,6 +35,9 @@
 /* Instrument Serif (for headers or special text) */
 @import url(https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
+/* Jets Brain Mono (for headers or special text) */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
 /* Intrstument Sans (clean and modern for body text) */
 @import url(https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap);
 
@@ -111,7 +114,7 @@
   --color-highlight: lemonchiffon;
   --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #eae8dc;
+  --color-bg: hsl(51, 25%, 89%);
   --color-bg-about: #eae8dc;
   --color-bg-footer: #eae8dc;
   --color-bg-holding-page: #ad6a3ad3;
@@ -130,21 +133,21 @@
   --color-text-project-title: #292820;
   --color-text-work-grid-title: #ffffff;
   /* Link States */
-  --color-link: #ad6a3a;
+  --color-link: #292820;
   --color-link-hover: #292820;
-  --color-link-visited: #ad6a3a;
+  --color-link-visited: #292820;
   /* Navigation */
   --color-nav-link: #292820;
   --color-nav-link-hover: #ad6a3a;
-  --color-nav-arrow: #ad6a3a;
+  --color-nav-arrow: #292820;
   --color-nav-arrow-hover: #292820;
-  --color-nav-arrow-stroke: #ad6a3a;
+  --color-nav-arrow-stroke: #292820;
   --color-nav-arrow-stroke-hover: #292820;
   /* Components */
   --color-bg-full-width: #lemonchiffon;
   --color-bg-project-description: #lemonchiffon;
-  --color-bg-sidebar-project: orangered;
-  --color-bg-sidebar-work: #fffacd;
+  --color-bg-sidebar-project: #eae8dc;
+  --color-bg-sidebar-work: #eae8dc;
   --color-gradient-hero: linear-gradient(90deg, #eae8dc, #ad6a3a);
   --color-gradient-project-details: linear-gradient(
     -225deg,
@@ -1144,9 +1147,7 @@ a.button:hover {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(
-    --color-gradient-project-details
-  ); /* TODO: Remove gradient background if you prefer a simpler design */
+  /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
 /* Previous/Next Arrow Styles */
