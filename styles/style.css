@@ -33,13 +33,10 @@
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
 /* Instrument Serif (for headers or special text) */
-@import url(https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-
 /* Jets Brain Mono (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
-
 /* Intrstument Sans (clean and modern for body text) */
-@import url(https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap);
+
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 /*
 
@@ -105,6 +102,7 @@
   --font-family-body: "Instrument Sans", sans-serif;
   --font-family-heading: "Instrument Serif", serif;
   --font-family-project-title: "Instrument Serif", serif;
+  --font-family-project-category: "JetBrains Mono", monospace;
   /* Core Colours */
   --color-text-primary: #292820;
   --color-text-secondary: #292820;
@@ -127,7 +125,8 @@
   --h6-color: #292820;
   /* Special Text Colours */
   --color-text-holding-title: #ebedf0;
-  --color-text-project-category: #ffffff;
+  --color-text-project-category-overlay: #ebedf0;
+  --color-text-project-category: #292820;
   --color-text-project-description: #222;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #292820;
@@ -201,7 +200,8 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("../assets/branding-images/cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
+  cursor:
+    url("../assets/branding-images/cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
 
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
@@ -492,6 +492,13 @@ sup {
   margin-bottom: 1rem;
 }
 
+.project-category {
+  font-size: 1.625rem;
+  font-family: var(--font-family-project-category);
+  color: var(--color-text-project-category);
+  margin-bottom: 1rem;
+}
+
 /* Project description text — pairs with the project title */
 .project-description {
   font-size: 1.225rem;
@@ -527,7 +534,12 @@ sup {
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
-  color: var(--color-text-project-category);
+  color: var(--color-text-project-category-overlay);
+  font-family: var(--font-family-project-category);
+}
+
+.resume-date-company {
+  font-family: var(--font-family-project-category);
 }
 
 /*
@@ -846,7 +858,9 @@ a svg.logo:hover {
   background-color: var(
     --color-overlay-primary
   ); /* Background color of the overlay */
-  transition: opacity var(--duration-normal), visibility var(--duration-normal);
+  transition:
+    opacity var(--duration-normal),
+    visibility var(--duration-normal);
 }
 
 /* Hover effect on work page grid items */
@@ -1218,11 +1232,8 @@ a.button:hover {
   width: 100%;
   min-height: 100vh;
   /* TODO: Delete the following if you do not want a grainy gradient background on index.html. Be careful not to delete the closing } */
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1),
-      var(--color-bg-holding-page)
-    ),
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 1), var(--color-bg-holding-page)),
     var(--image-noise-texture);
   /* For more on grainy gradients see https://grainy-gradients.vercel.app/ */
 }
@@ -1459,7 +1470,7 @@ to keep your styles reusable and consistent.
     position: -webkit-sticky;
     position: sticky;
     top: 8rem;
-    padding-right: 2rem;
+    padding-right: 3rem;
   }
 
   /* Main Project Image Area on Large Devices */
