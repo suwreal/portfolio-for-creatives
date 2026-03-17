@@ -106,7 +106,7 @@
   /* Core Colours */
   --color-text-primary: #292820;
   --color-text-secondary: #292820;
-  --color-accent-primary: #292820;
+  --color-accent-primary: #eae8dc;
   --color-accent-secondary: #ff057c;
   --color-overlay-primary: #ad6a3ad3;
   --color-highlight: lemonchiffon;
@@ -403,11 +403,13 @@ svg {
 /* Heading Styles (h1 - h6) */
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h1-color);
+  text-align: justify;
+  text-align-last: justify;
 }
 
 h2 {
@@ -479,9 +481,26 @@ sup {
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
   color: var(--color-accent-primary); /* Uses your brand's dominant color */
-  max-width: 40ch; /* Optimal line length for readability (~40 characters) */
-  text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
+  /* max-width: 40ch;  */
+  width: 50%;
+
+  /* Optimal line length for readability (~40 characters) */
+  /* text-wrap: balance; */
+  /* Prevents awkward line breaks (like elegant typography) */
   margin-inline: auto; /* Horizontally centers the text in its container */
+}
+
+.inner-wrapper {
+  background: red;
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  justify-content: center;
+  background: url(../assets/about/sophia-index.jpg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 1rem;
 }
 
 /* Large project title — appears on individual project pages */
@@ -684,15 +703,15 @@ a svg.logo:hover {
 }
 
 .hero-headline-wrapper {
-  width: 100%;
+  min-height: 80vh;
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 3rem;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  width: 100%;
   padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
+  border: 10px solid yellow;
 }
 
 .hero-icon {
@@ -1378,7 +1397,7 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4.275rem;
+    font-size: 3.125rem;
   }
 
   h2 {
@@ -1412,10 +1431,10 @@ to keep your styles reusable and consistent.
   }
 
   .hero-headline-wrapper {
-    padding-top: var(--padding-jumbo);
-    padding-bottom: var(--padding-jumbo);
-    padding-left: var(--padding-ultra);
-    padding-right: var(--padding-ultra);
+    padding-top: var(--padding-tiny);
+    padding-bottom: var(--padding-tiny);
+    padding-left: var(--padding-tiny);
+    padding-right: var(--padding-tiny);
   }
   .error-headline-wrapper {
     padding-top: var(--padding-small);
