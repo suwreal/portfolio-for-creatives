@@ -114,7 +114,7 @@
   /* Backgrounds */
   --color-bg: hsl(51, 25%, 89%);
   --color-bg-about: #eae8dc;
-  --color-bg-footer: #eae8dc;
+  --color-bg-footer: #ad6a3ad3;
   --color-bg-holding-page: #ad6a3ad3;
   /* Headings */
   --h1-color: #292820;
@@ -1017,6 +1017,11 @@ a.button:hover {
 }
 .footer-socials-list {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  background: pink;
+  justify-content: space-between;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1524,9 +1529,9 @@ to keep your styles reusable and consistent.
   /* ------------------------------- */
 
   .footer-global {
-    min-height: 50vh;
+    min-height: 20vh;
     border-top: 10px solid rgb(115, 0, 0);
-    padding-top: var(--padding-jumbo);
+    padding-top: var(--padding-small);
     padding-right: var(--padding-jumbo);
     padding-bottom: 0;
     padding-left: var(--padding-jumbo);
@@ -1549,6 +1554,7 @@ to keep your styles reusable and consistent.
   .footer-contact-social {
     grid-row: 1 / 2;
     grid-column: 3 / 4;
+    text-align: right;
   }
 
   /* ------------------------------- */
