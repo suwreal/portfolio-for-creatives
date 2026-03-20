@@ -429,7 +429,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h4-color);
@@ -1197,15 +1197,15 @@ a.mail:hover {
   justify-content: flex-start;
   flex-direction: column;
   background: var(--color-bg-project-description);
-  padding: var(--padding-small);
+  padding: 3rem 0rem 3rem 0rem;
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
+  gap: 5rem;
 }
 
 /* Column styles for two-column layouts */
 .col-2 {
   width: 100%;
-  padding: var(--padding-small);
 }
 
 /* Project image styling */
