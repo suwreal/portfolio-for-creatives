@@ -108,14 +108,14 @@
   --color-text-secondary: #292820;
   --color-accent-primary: #eae8dc;
   --color-accent-secondary: #ff057c;
-  --color-overlay-primary: #ad6a3ad3;
+  --color-overlay-primary: #a66a39;
   --color-highlight: lemonchiffon;
   --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: hsl(51, 25%, 89%);
   --color-bg-about: #eae8dc;
-  --color-bg-footer: #ad6a3ad3;
-  --color-bg-holding-page: #ad6a3ad3;
+  --color-bg-footer: #a66a39;
+  --color-bg-holding-page: #a66a39;
   /* Headings */
   --h1-color: #292820;
   --h2-color: #292820;
@@ -133,11 +133,11 @@
   --color-text-work-grid-title: #ffffff;
   /* Link States */
   --color-link: #292820;
-  --color-link-hover: #292820;
-  --color-link-visited: #292820;
+  --color-link-hover: #a66a39;
+
   /* Navigation */
   --color-nav-link: #292820;
-  --color-nav-link-hover: #ad6a3a;
+  --color-nav-link-hover: #a66a39;
   --color-nav-arrow: #292820;
   --color-nav-arrow-hover: #292820;
   --color-nav-arrow-stroke: #292820;
@@ -147,17 +147,17 @@
   --color-bg-project-description: #lemonchiffon;
   --color-bg-sidebar-project: #eae8dc;
   --color-bg-sidebar-work: #eae8dc;
-  --color-gradient-hero: linear-gradient(90deg, #eae8dc, #ad6a3a);
+  --color-gradient-hero: linear-gradient(90deg, #eae8dc, #a66a39);
   --color-gradient-project-details: linear-gradient(
     -225deg,
     #eae8dc 0%,
     #fffacd 50%,
-    #ad6a3a 100%
+    #a66a39 100%
   );
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
-  --color-bg-selection: #ad6a3a;
+  --color-bg-selection: #a66a39;
   --color-shadow-stroke: rgba(0, 0, 0, 0.4);
   /* Assets */
   --image-noise-texture: url(/assets/temp/noise.svg);
@@ -413,7 +413,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -421,10 +421,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.325rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   line-height: 1.2;
-  color: var(--h3-color);
+  font-family: var(--font-family-project-category);
+  color: var(--color-text-project-category);
 }
 
 h4 {
@@ -454,7 +455,7 @@ h6 {
 /* ------------------------------------------------------------------ */
 
 p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.3;
   margin-bottom: 1rem;
 }
@@ -480,9 +481,10 @@ sup {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: var(--color-accent-primary); /* Uses your brand's dominant color */
+  color: #eae8dc; /* Uses your brand's dominant color */
   /* max-width: 40ch;  */
   width: 50%;
+  max-width: 150vh;
 
   /* Optimal line length for readability (~40 characters) */
   /* text-wrap: balance; */
@@ -491,16 +493,16 @@ sup {
 }
 
 .inner-wrapper {
-  background: red;
   display: flex;
-  min-height: 80vh;
+  height: 70vh;
   align-items: center;
   justify-content: center;
   background: url(../assets/about/sophia-index.jpg);
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-bottom: 1rem;
+  margin-bottom: 8rem;
+  margin-top: 3rem;
 }
 
 /* Large project title — appears on individual project pages */
@@ -549,6 +551,8 @@ sup {
 .work-grid-project-title {
   font-size: 2.875rem;
   color: var(--color-text-work-grid-title);
+  text-align: center;
+  text-align-last: center;
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
@@ -580,7 +584,7 @@ sup {
 /* Unvisited link */
 a:link {
   color: var(--color-link);
-  text-decoration: none; /* Removes underline */
+
   cursor: url("../assets/branding-images/cursor.png"), auto !important;
 }
 
@@ -666,7 +670,7 @@ a.nav-link-primary:hover {
 /* Great place for first impression and personal branding                    */
 /* -------------------------------------------------------------------------- */
 a svg.logo {
-  fill: var(--color-accent-primary);
+  fill: #292820;
 }
 
 a svg.logo:hover {
@@ -682,11 +686,18 @@ a svg.logo:hover {
   min-height: 6rem; /* Space reserved for logo + nav */
 }
 
+.play-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+}
 .nav-branding {
   display: flex;
   justify-content: space-between;
   padding: var(--padding-small);
   align-items: center;
+  width: 25vh;
 }
 
 .nav-branding-group {
@@ -699,6 +710,7 @@ a svg.logo:hover {
 
 .nav-branding-logo {
   width: 3rem;
+  color: #292820;
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
 
@@ -711,7 +723,6 @@ a svg.logo:hover {
   width: 100%;
   padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
-  border: 10px solid yellow;
 }
 
 .hero-icon {
@@ -805,6 +816,8 @@ a svg.logo:hover {
 /* Work wrapper (takes up available space) */
 .main-work-section {
   flex: 1;
+  border-top: 15px solid #a66a39;
+  padding: 1.5rem 3rem 1.5rem 3rem;
 }
 
 /* Padding around work grid and project page */
@@ -964,7 +977,7 @@ a.button {
 
 a.button:hover {
   padding: 0.5rem;
-  background-color: #ad6a3ad3;
+  background-color: #a66a39d3;
   color: #222;
 }
 
@@ -989,9 +1002,9 @@ a.button:hover {
   grid-gap: 3rem; /* Consistent spacing between sections */
   min-height: auto; /* Allows footer to expand based on content, no fixed height */
   background: var(--color-bg-footer); /* Using CSS variable for theming */
-  padding: var(--padding-small); /* Internal spacing */
+  padding: 2rem 3rem 5rem 3rem;
 
-  /* Note: Using 'fr' units ensures proper scaling across devices */
+  /* Note: Using 'fr' units ensuråes proper scaling across devices */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1002,6 +1015,11 @@ a.button:hover {
 .footer-tagline {
   grid-column: 1 / 2; /* Full width (single column) */
   grid-row: 1 / 2;
+  font-size: 4rem;
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  margin-bottom: 5rem;
+  color: var(--color-accent-primary);
 }
 .footer-highlights {
   grid-column: 1 / 2;
@@ -1011,13 +1029,31 @@ a.button:hover {
   grid-column: 1 / 2;
   grid-row: 3 / 4;
 }
+
+a.mail {
+  font-size: 3rem;
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-accent-primary);
+}
+
+a.mail:hover {
+  font-size: 3rem;
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-nav-arrow-hover);
+}
+
 /* -------------------------------------------------------------------------- */
 /* 🌊 FULL-WIDTH BOTTOM SECTION                                               */
 /* Typically used for copyright/legal information                             */
 /* -------------------------------------------------------------------------- */
+
 .footer-full-width {
   grid-column: 1 / 2;
-  grid-row: 4 / 5;
+  grid-row: 5 / 5;
   text-align: center; /* Center copyright text */
   align-self: end; /* Push to bottom */
 }
@@ -1038,8 +1074,7 @@ a.button:hover {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
-  width: 70%;
-  background: pink;
+  width: 45vh;
   justify-content: space-between;
 }
 
@@ -1401,11 +1436,11 @@ to keep your styles reusable and consistent.
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size:;
   }
 
   h3 {
-    font-size: 1.625rem;
+    font-size:;
   }
 
   .h1-full-width,
@@ -1428,6 +1463,7 @@ to keep your styles reusable and consistent.
 
   .hero {
     min-height: 96vh;
+    margin-bottom: 3rem;
   }
 
   .hero-headline-wrapper {
@@ -1548,12 +1584,6 @@ to keep your styles reusable and consistent.
   /* ------------------------------- */
 
   .footer-global {
-    min-height: 20vh;
-    border-top: 10px solid rgb(115, 0, 0);
-    padding-top: var(--padding-small);
-    padding-right: var(--padding-jumbo);
-    padding-bottom: 0;
-    padding-left: var(--padding-jumbo);
     grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
   }
 
