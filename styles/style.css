@@ -1200,7 +1200,7 @@ a.mail:hover {
   padding: 3rem 0rem 3rem 0rem;
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
-  gap: 5rem;
+  gap: 4rem;
 }
 
 /* Column styles for two-column layouts */
