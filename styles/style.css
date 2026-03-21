@@ -433,6 +433,8 @@ h4 {
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h4-color);
+  font-style: italic;
+}
 }
 
 h5 {
