@@ -501,10 +501,11 @@ sup {
   justify-content: center;
   background: url(../assets/about/sophia-index.jpg);
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 8rem;
   margin-top: 3rem;
+  object-fit: cover;
 }
 
 /* Large project title — appears on individual project pages */
@@ -723,7 +724,6 @@ a svg.logo:hover {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
 }
 
@@ -1249,6 +1249,36 @@ a.mail:hover {
   padding: 0;
 }
 
+.hero-headline-wrapper {
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-tiny);
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero-headline-wrapper {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .hero-headline-wrapper {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1600px) {
+  .hero-headline-wrapper {
+    padding-left: 30rem;
+    padding-right: 30rem;
+  }
+}
 /*
 
 ██████  ██       ██████   ██████      ██ ██████  ███████ ███████ ██    ██ ███    ███ ███████ 
@@ -1404,6 +1434,7 @@ to keep your styles reusable and consistent.
 
 */
 
+
 /* Media Queries for Layout Adjustments */
 
 /* Medium devices (tablets, 768px and up) */
@@ -1468,12 +1499,7 @@ to keep your styles reusable and consistent.
     margin-bottom: 3rem;
   }
 
-  .hero-headline-wrapper {
-    padding-top: var(--padding-tiny);
-    padding-bottom: var(--padding-tiny);
-    padding-left: var(--padding-tiny);
-    padding-right: var(--padding-tiny);
-  }
+
   .error-headline-wrapper {
     padding-top: var(--padding-small);
     padding-bottom: var(--padding-small);
