@@ -482,11 +482,16 @@ sup {
 /* ------------------------------------------------------------------ */
 
 /* Main hero headline — usually sits in the intro section */
-.hero-headline {
+.hero .hero-headline {
   color: #eae8dc; /* Uses your brand's dominant color */
-  /* max-width: 40ch;  */
-  width: 50%;
-  max-width: 150vh;
+  /* Keep text inside the hero image across mobile/tablet/desktop */
+  width: min(72%, 32rem);
+  max-width: 32rem;
+  font-size: clamp(1.2rem, 0.62rem + 1.9vw, 2.45rem);
+  line-height: 1.06;
+  text-align: justify;
+  text-align-last: justify;
+  hyphens: none;
 
   /* Optimal line length for readability (~40 characters) */
   /* text-wrap: balance; */
@@ -494,17 +499,37 @@ sup {
   margin-inline: auto; /* Horizontally centers the text in its container */
 }
 
+/* Slightly larger hero text on phones */
+@media (max-width: 767px) {
+  .hero .hero-headline {
+    font-size: clamp(1.65rem, 6.2vw, 2.35rem);
+    line-height: 1.08;
+    width: min(68%, 24rem);
+    text-align: justify;
+    text-align-last: justify;
+  }
+
+  .hero-headline-wrapper {
+    padding-left: clamp(2.5rem, 12vw, 5rem);
+    padding-right: clamp(2.5rem, 12vw, 5rem);
+  }
+}
+
 .inner-wrapper {
   display: flex;
-  height: 70vh;
+  height: min(64vh, 42rem);
+  aspect-ratio: 323 / 223;
+  width: auto;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   background: url(../assets/about/sophia-index.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 8rem;
-  margin-top: 3rem;
+  margin-inline: auto;
+  margin-top: clamp(0.5rem, 1.5vh, 1rem);
+  margin-bottom: auto;
   object-fit: cover;
 }
 
@@ -681,9 +706,11 @@ a svg.logo:hover {
 }
 .hero {
   width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
+  min-height: 100vh; /* Full viewport height */
+  height: 100vh; /* Keep hero exactly one viewport tall */
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
 }
 .hero-header {
   min-height: 6rem; /* Space reserved for logo + nav */
@@ -692,15 +719,20 @@ a svg.logo:hover {
 .play-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
+  gap: 0.75rem;
 }
 .nav-branding {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
   padding: var(--padding-small);
   align-items: center;
-  width: 25vh;
+  width: auto;
+  min-width: 0;
 }
 
 .nav-branding-group {
@@ -712,17 +744,18 @@ a svg.logo:hover {
 }
 
 .nav-branding-logo {
-  width: 3rem;
+  width: 2.75rem;
+  flex: 0 0 auto;
   color: #292820;
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
 
 .hero-headline-wrapper {
-  min-height: 80vh;
+  flex: 1;
+  min-height: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   text-align: center; /* Keeps text centered */
 }
@@ -819,7 +852,7 @@ a svg.logo:hover {
 .main-work-section {
   flex: 1;
   border-top: 15px solid #a66a39;
-  padding: 1.5rem 3rem 1.5rem 3rem;
+  padding: 1rem;
 }
 
 /* Padding around work grid and project page */
@@ -849,7 +882,7 @@ a svg.logo:hover {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(300px, 1fr)
+    minmax(240px, 1fr)
   ); /* Creates a responsive grid */
   grid-gap: 1rem; /* Space between grid items */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
@@ -1001,10 +1034,10 @@ a.button:hover {
 .footer-global {
   display: grid;
   grid-template-columns: 1fr; /* Single column layout */
-  grid-gap: 3rem; /* Consistent spacing between sections */
+  gap: 1.25rem; /* Tighter spacing for a shorter footer */
   min-height: auto; /* Allows footer to expand based on content, no fixed height */
   background: var(--color-bg-footer); /* Using CSS variable for theming */
-  padding: 2rem 3rem 5rem 3rem;
+  padding: 1.25rem 3rem 1.5rem 3rem;
 
   /* Note: Using 'fr' units ensuråes proper scaling across devices */
 }
@@ -1020,7 +1053,7 @@ a.button:hover {
   font-size: 4rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  margin-bottom: 5rem;
+  margin-bottom: 0.5rem;
   color: var(--color-accent-primary);
 }
 .footer-highlights {
@@ -1036,7 +1069,7 @@ a.mail {
   font-size: 3rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   color: var(--color-accent-primary);
 }
 
@@ -1044,7 +1077,7 @@ a.mail:hover {
   font-size: 3rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   color: var(--color-nav-arrow-hover);
 }
 
@@ -1060,24 +1093,59 @@ a.mail:hover {
   align-self: end; /* Push to bottom */
 }
 
+.footer-scroll-top {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+}
+
+a.footer-scroll-top:link,
+a.footer-scroll-top:visited {
+  color: var(--color-accent-primary);
+}
+
+a.footer-scroll-top:hover,
+a.footer-scroll-top:focus-visible,
+a.footer-scroll-top:active {
+  color: var(--color-nav-arrow-hover);
+}
+
+.footer-scroll-top img {
+  width: clamp(4rem, 8vw, 5.5rem);
+  height: auto;
+  display: block;
+}
+
+.footer-scroll-top-text {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: currentColor;
+}
+
 /* ------------------------------- */
 /* 📜 Reusable footer list styles */
 /* ------------------------------- */
 .footer-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .footer-awards-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .footer-works-list {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .footer-socials-list {
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
   display: flex;
   flex-direction: row;
   width: 45vh;
   justify-content: space-between;
+  align-self: center;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1252,32 +1320,8 @@ a.mail:hover {
 .hero-headline-wrapper {
   padding-top: var(--padding-tiny);
   padding-bottom: var(--padding-tiny);
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-/* Tablet */
-@media (min-width: 768px) {
-  .hero-headline-wrapper {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-
-/* Desktop */
-@media (min-width: 1200px) {
-  .hero-headline-wrapper {
-    padding-left: 10rem;
-    padding-right: 10rem;
-  }
-}
-
-/* Large screens */
-@media (min-width: 1600px) {
-  .hero-headline-wrapper {
-    padding-left: 30rem;
-    padding-right: 30rem;
-  }
+  padding-left: clamp(2rem, 10vw, 14rem);
+  padding-right: clamp(2rem, 10vw, 14rem);
 }
 /*
 
@@ -1450,6 +1494,11 @@ to keep your styles reusable and consistent.
 @media (min-width: 992px) {
   /* TODO: Add or adjust styles here for large devices. */
 
+  .play-header {
+    padding: 2rem;
+    align-items: center;
+  }
+
   .flex-row {
     flex-direction: row; /* Changes to row layout on larger screens */
   }
@@ -1487,6 +1536,10 @@ to keep your styles reusable and consistent.
 
   .nav-branding {
     flex-direction: row;
+    width: 25vh;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0;
   }
 
   .nav-branding-logo {
@@ -1495,8 +1548,13 @@ to keep your styles reusable and consistent.
   }
 
   .hero {
-    min-height: 96vh;
+    min-height: 100vh;
+    height: 100vh;
     margin-bottom: 3rem;
+  }
+
+  .main-work-section {
+    padding: 1.5rem 3rem;
   }
 
 
